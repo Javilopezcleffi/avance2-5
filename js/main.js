@@ -47,7 +47,7 @@ if (perimetro < 244) {
 } else
   costoMoldura = 3 * inputMoldura.value;
 
-let costoEstimado = costoVidrio + costoMoldura + costoOtros+100
+let costoEstimado = costoVidrio + costoMoldura+100
 let precioFinal = parseInt(2 * costoEstimado)
 let precioRedondeado = Math.ceil(precioFinal / 50) * 50;
 
@@ -70,9 +70,12 @@ class marco {
   }
 }
 
+btnCalcular.addEventListener("click", () => {
+  console.log(largo, ancho, inputMoldura);
+})
 // botón para crear marco nuevo
 
-btnCalcular.addEventListener("click", () => {
+/* btnCalcular.addEventListener("click", () => {
   
   console.log(largo, ancho, inputMoldura.value);
   calc()
@@ -93,4 +96,4 @@ btnCalcular.addEventListener("click", () => {
   console.log(marcos);
   console.log(inputMoldura.value);
 
-});
+}); */
