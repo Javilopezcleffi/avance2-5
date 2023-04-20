@@ -1,15 +1,13 @@
 // inputs
 
-const inputNombre = document.querySelector("#inputNombre"),
-  largo = parseFloat(document.querySelector("#inputLargo").value),
-  ancho = parseFloat(document.querySelector("#inputAncho").value),
-  inputMoldura = document.querySelector("#select-moldura"),
-  inputVidrio = document.querySelector("#inputVidrio"),
-  btnCalcular = document.querySelector("#btnCalcular");
+const inputNombre = document.querySelector("#inputNombre");
+const largo = parseFloat(document.querySelector("#inputLargo").value);
+const ancho = parseFloat(document.querySelector("#inputAncho").value);
+const inputMoldura = document.querySelector("#select-moldura");
+const inputVidrio = document.querySelector("#inputVidrio");
+const btnCalcular = document.querySelector("#btnCalcular");
 const fragment = document.createDocumentFragment();
-
-contenedor = document.querySelector("#contenedor");
-
+const contenedor = document.querySelector("#contenedor");
 
 // variantes de molduras
 
@@ -26,8 +24,12 @@ for (const moldura of molduras) {
   option.innerText = moldura.nombre;
   fragment.appendChild(option);
 }
-
 inputMoldura.appendChild(fragment);
+
+let costoVidrio = 0;
+let perimetro = 0;
+let costoMoldura = 0;
+let precioRedondeado = 0;
 
 // cálculos
 
@@ -35,7 +37,6 @@ function calc(largo, ancho) {
 
 const costoVidrio = parseFloat(ancho * largo / 5.6)
 const perimetro = parseFloat(2 * ancho + 2 * largo)
-const costoOtros = 100
 let costoMoldura;
 
 
@@ -44,11 +45,10 @@ if (perimetro < 244) {
 } else if (perimetro >= 244 && perimetro <= 488) {
   costoMoldura = (2 * inputMoldura.value);
 } else
-  costoMoldura = 3 * precioMoldura;
+  costoMoldura = 3 * inputMoldura.value;
 
-let costoEstimado = costoVidrio + costoMoldura + costoOtros
+let costoEstimado = costoVidrio + costoMoldura + costoOtros+100
 let precioFinal = parseInt(2 * costoEstimado)
-
 let precioRedondeado = Math.ceil(precioFinal / 50) * 50;
 
 }
@@ -79,8 +79,8 @@ btnCalcular.addEventListener("click", () => {
 
   const newMarco = new marco(
     inputNombre.value,
-    inputLargo.value,
-    inputAncho.value,
+    largo.value,
+    ancho.value,
     inputMoldura.nombre,
     costoVidrio,
     perimetro,
