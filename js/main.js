@@ -1,30 +1,15 @@
-//ingresar medidas
-
-/*   while (isNaN(largo)) {
-    largo = parseFloat(prompt("Por favor, ingrese el largo en centímetros:", "40.5"));
-  }
-
-  while (isNaN(ancho)) {
-    ancho = parseFloat(prompt("Ingrese el ancho en centímetros:", "90.3"));
-  }
- */
-
-
-// imputs
-
-const form = document.querySelector("form");
+// inputs
 
 const inputNombre = document.querySelector("#inputNombre"),
-  largo = parseFloat(document.getElementById("inputLargo")),
-  ancho = parseFloat(document.getElementById("inputAncho")),
-  inputMoldura = document.getElementById("#inputMoldura"),
+  largo = parseFloat(document.querySelector("#inputLargo").value),
+  ancho = parseFloat(document.querySelector("#inputAncho").value),
+  inputMoldura = document.querySelector("#select-moldura"),
   inputVidrio = document.querySelector("#inputVidrio"),
-  btnCalcular = document.querySelector("#btnCalcular")
+  btnCalcular = document.querySelector("#btnCalcular");
 const fragment = document.createDocumentFragment();
 
 contenedor = document.querySelector("#contenedor");
 
-console.log(largo, ancho);
 
 // variantes de molduras
 
@@ -37,24 +22,27 @@ const molduras = [
 
 for (const moldura of molduras) {
   const option = document.createElement("option");
-  option.value = moldura.nombre;
+  option.value = parseFloat(moldura.precio);
   option.innerText = moldura.nombre;
   fragment.appendChild(option);
 }
 
+inputMoldura.appendChild(fragment);
+
 // cálculos
 
-const costoVidrio = parseFloat(ancho * largo / 6.4)
+function calc(largo, ancho) {
+
+const costoVidrio = parseFloat(ancho * largo / 5.6)
 const perimetro = parseFloat(2 * ancho + 2 * largo)
 const costoOtros = 100
 let costoMoldura;
-const precioMoldura = (inputMoldura.precio);
 
 
 if (perimetro < 244) {
-  costoMoldura = precioMoldura
+  costoMoldura = moldura.precio
 } else if (perimetro >= 244 && perimetro <= 488) {
-  costoMoldura = (2 * precioMoldura);
+  costoMoldura = (2 * moldura.precio);
 } else
   costoMoldura = 3 * precioMoldura;
 
@@ -63,21 +51,8 @@ let precioFinal = parseInt(2 * costoEstimado)
 
 let precioRedondeado = Math.ceil(precioFinal / 50) * 50;
 
+}
 
-
-
-
-
-/* console.log(
-  `medidas: ${largo}x${ancho} cm.\n 
-  costo del vidrio: ${parseInt(costoVidrio)}\n 
-  perimetro: ${perimetro}\n  
-  precio final: ${precioRedondeado}`
-);
-alert(`El precio para tu marco de ${largo} x ${ancho} es de ${precioRedondeado} pesos`)
- */
-
-// array de marcos
 
 const marcos = []
 
@@ -98,11 +73,14 @@ class marco {
 // botón para crear marco nuevo
 
 btnCalcular.addEventListener("click", () => {
+  
+  calc()
+
   const newMarco = new marco(
     inputNombre.value,
     inputLargo.value,
     inputAncho.value,
-    inputMoldura.value,
+    inputMoldura.nombre,
     costoVidrio,
     perimetro,
     precioRedondeado,
@@ -112,17 +90,6 @@ btnCalcular.addEventListener("click", () => {
   productos.push(newMarco);
 
   console.log(marcos);
-  console.log(imputMoldura.value);
+  console.log(inputMoldura.value);
 
 });
-
-
-
-
-/* let repetir = prompt("¿Desea presupuestar otro marco? (si/no)");
-
-if (repetir.toLowerCase() === "si") {
-  presupuesto();
-} else {
-  alert("¡Hasta luego!");
-} */
