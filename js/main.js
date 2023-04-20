@@ -40,9 +40,9 @@ let costoMoldura;
 
 
 if (perimetro < 244) {
-  costoMoldura = moldura.precio
+  costoMoldura = inputMoldura.value
 } else if (perimetro >= 244 && perimetro <= 488) {
-  costoMoldura = (2 * moldura.precio);
+  costoMoldura = (2 * inputMoldura.value);
 } else
   costoMoldura = 3 * precioMoldura;
 
@@ -74,6 +74,7 @@ class marco {
 
 btnCalcular.addEventListener("click", () => {
   
+  console.log(largo, ancho, inputMoldura.value);
   calc()
 
   const newMarco = new marco(
