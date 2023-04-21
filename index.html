@@ -13,102 +13,102 @@
 <body>
     <h1 class="text-center p-5">Calculadora para Marquería</h1>
 
-        <div class="row m-5">
+    <div class="row m-5">
 
-             <!-- formulario -->
+        <!-- formulario -->
 
-<div class="col-xl-4 col-md-6 col-sm-12">
-    <form>
+        <div class="col-xl-4 col-md-6 col-sm-12">
+            <form id="formulario">
 
-        <div class="form-group">
-            <label for="inputAddress">Tu nombre</label>
-            <input type="text" class="form-control" id="inputNombre" placeholder="Cecilia">
-        </div>
+                <div class="form-group">
+                    <label for="Nombre">Tu nombre</label>
+                    <input type="text" class="form-control" id="inputNombre" placeholder="Cecilia">
+                </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputLargo">Largo (cm)</label>
-                <input type="number" class="form-control" id="inputLargo" placeholder="90.3">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputAncho">Ancho (cm)</label>
-                <input type="number" class="form-control" id="inputAncho" placeholder="45.5">
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Largo">Largo (cm)</label>
+                        <input type="number" class="form-control" id="inputLargo" placeholder="90.3">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Ancho">Ancho (cm)</label>
+                        <input type="number" class="form-control" id="inputAncho" placeholder="45.5">
+                    </div>
+                </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputMoldura">Tipo de moldura</label>
-                <select name="molduras" id="select-moldura" class="form-control">
-                    <option value="no disponible" disabled selected></option>
-                    <!-- contenido dinámico -->
-                </select>
-            </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Moldura">Tipo de moldura</label>
+                        <select name="molduras" id="inputMoldura" class="form-control">
+                            <option value="no disponible" disabled selected></option>
+                            <!-- contenido dinámico -->
+                        </select>
+                    </div>
 
-            <div class="form-group col-md-6">
-                <label for="inputVidrio">Tipo de vidrio</label>
+                    <!--  <div class="form-group col-md-6">
+                <label for="Vidrio">Tipo de vidrio</label>
                 <select id="inputVidrio" class="form-control">
                     <option selected>Vidrio común</option>
                     <option>Vidrio antirreflejo</option>
                 </select>
-            </div>
-            
+            </div> -->
+
+                </div>
+
+                <button id="btnCalcular" type="submit" class="btn btn-primary">Calcular</button>
+            </form>
         </div>
-        
-        <button id="btnCalcular" type="submit" class="btn btn-primary">Calcular</button>
-    </form>
-</div>
 
 
- <!-- Molduras disponibles -->
+        <!-- Molduras disponibles -->
 
-            <div class="row col-xl-8">
+        <div class="row col-xl-8">
 
-                <div id="mol1" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
-                    <div class="bg-white rounded shadow-sm"><img src="img/m2-30G.jpeg" alt="moldura pequeña"
-                            class="img-fluid card-img-top">
-                        <div class="p-4">
-                            <h5 class="text-dark">1 Moldura pequeña</h5>
-                        </div>
+            <div id="mol1" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
+                <div class="bg-white rounded shadow-sm"><img src="img/m2-30G.jpeg" alt="moldura pequeña"
+                        class="img-fluid card-img-top">
+                    <div class="p-4">
+                        <h5 class="text-dark">1 Moldura pequeña</h5>
                     </div>
                 </div>
-
-
-                <div id="mol2" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
-                    <div class="bg-white rounded shadow-sm"><img src="img/m2-30G.jpeg" alt="moldura media"
-                            class="img-fluid card-img-top">
-                        <div class="p-4">
-                            <h5 class="text-dark">2 Moldura media</h5>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div id="mol3" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
-                    <div class="bg-white rounded shadow-sm"><img src="img/m3-230.jpeg" alt="moldura tipo caja"
-                            class="img-fluid card-img-top">
-                        <div class="p-4">
-                            <h5 class="text-dark">3 Moldura tipo caja</h5>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div id="mol4" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
-                    <div class="bg-white rounded shadow-sm"><img src="img/m4-275.jpeg" alt="moldura grande"
-                            class="img-fluid card-img-top">
-                        <div class="p-4">
-                            <h5 class="text-dark">4 Moldura Grande</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="contenedor">
-                    <!-- Contenido dinamico -->
-                  </div>
             </div>
 
+
+            <div id="mol2" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
+                <div class="bg-white rounded shadow-sm"><img src="img/m2-30G.jpeg" alt="moldura media"
+                        class="img-fluid card-img-top">
+                    <div class="p-4">
+                        <h5 class="text-dark">2 Moldura media</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="mol3" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
+                <div class="bg-white rounded shadow-sm"><img src="img/m3-230.jpeg" alt="moldura tipo caja"
+                        class="img-fluid card-img-top">
+                    <div class="p-4">
+                        <h5 class="text-dark">3 Moldura tipo caja</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="mol4" class="col-xl-3 col-md-3 col-sm-6 mb-4 ">
+                <div class="bg-white rounded shadow-sm"><img src="img/m4-275.jpeg" alt="moldura grande"
+                        class="img-fluid card-img-top">
+                    <div class="p-4">
+                        <h5 class="text-dark">4 Moldura Grande</h5>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
+        <div id="contenedor">
+            <!-- Contenido dinamico -->
+        </div>
+    </div>
     </div>
 
 
